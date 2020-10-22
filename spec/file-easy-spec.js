@@ -3,20 +3,20 @@ const path = require('path');
 const fu = require('../index');
 
 
-describe('file-utils', () => {
+describe('file-easy', () => {
 
-    describe('file-utils.slug()', () => {
+    describe('file-easy.slug()', () => {
 
         it('should return empty on empty or all spaces', () => {
             let r = fu.slug('')
             expect(r).toEqual('')
             r = fu.slug(' ')
-            expect(r).toEqual('')          
+            expect(r).toEqual('')
         })
 
         it('should return empty on all special characters', () => {
             let r = fu.slug('#$%^&*')
-            expect(r).toEqual('')        
+            expect(r).toEqual('')
         })
 
         it('should return all lowercase', () => {
@@ -37,7 +37,7 @@ describe('file-utils', () => {
 
     })
 
-    describe('file-utils.setDefaultExtension()', () => {
+    describe('file-easy.setDefaultExtension()', () => {
 
         it('should return the initial filename if extension present', () => {
             let r = fu.setDefaultExtension('filename.js', '.json')
@@ -55,7 +55,7 @@ describe('file-utils', () => {
         })
     })
 
-    describe('file-utils.saveDocument()', () => {
+    describe('file-easy.saveDocument()', () => {
 
         it('should save the file in local folder', () => {
             let filename = path.join(__dirname, 'sample.txt')
@@ -63,7 +63,7 @@ describe('file-utils', () => {
                 fs.unlinkSync(filename);
             fu.saveDocument(filename, 'Content')
             let r = fs.existsSync(filename)
-            expect(r).toEqual(true)       
+            expect(r).toEqual(true)
         })
 
         it('should save the file in local subfolder folder', () => {
@@ -72,7 +72,7 @@ describe('file-utils', () => {
                 fs.unlinkSync(filename);
             fu.saveDocument(filename, 'Content')
             let r = fs.existsSync(filename)
-            expect(r).toEqual(true)       
+            expect(r).toEqual(true)
         })
     })
 })
