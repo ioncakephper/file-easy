@@ -1,11 +1,11 @@
-# file-utils
+# file-easy
 
 File utilities to speed up creating document files, setting default extension, and getting a `slug` from a string.
 
 ## Installation
 
 ```bash
-npm i file-utils
+npm i file-easy
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ npm i file-utils
 ### `.slug()`
 
 ```javascript
-const fileUtils = require('file-utils')
+const fileUtils = require('file-easy')
 
 // getting a slug
 let fn = 'source Filename';
@@ -28,7 +28,7 @@ Slug: source-filename
 ```
 
 ```javascript
-const fileUtils = require('file-utils')
+const fileUtils = require('file-easy')
 
 let names = [
     'Simple_File$Goes%Here',
@@ -50,7 +50,7 @@ Source: " %%Welcome**    Buddy%&^#$% " is: " welcome-buddy
 ### `.setDefaultExtension()`
 
 ```javascript
-const fileUtils = require('file-utils')
+const fileUtils = require('file-easy')
 
 // f1 is filename.js (no extension in original, apply extension)
 let f1 = fileUtils.setDefaultExtension('filename', '.js)
@@ -66,7 +66,7 @@ let f3 = fileUtils.setDefaultExtension('filename.', '.js')
 
 
 ```javascript
-const fileUtils = require('file-utils')
+const fileUtils = require('file-easy')
 
 let filename = './docs/sample.txt'
 let content = 'String to go in'
