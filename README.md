@@ -13,11 +13,11 @@ npm i file-easy
 ### `.slug()`
 
 ```javascript
-const fileUtils = require('file-easy')
+const fileEasy = require('file-easy')
 
 // getting a slug
 let fn = 'source Filename';
-let slug = fileUtils.slug(fn)
+let slug = fileEasy.slug(fn)
 console.log('Slug:', slug)
 ```
 
@@ -28,14 +28,14 @@ Slug: source-filename
 ```
 
 ```javascript
-const fileUtils = require('file-easy')
+const fileEasy = require('file-easy')
 
 let names = [
     'Simple_File$Goes%Here',
     '%%Welcome**    Buddy%&^#$%'
 ];
 names.forEach((name) => {
-    console.log('Source: "', name, '" is:', fileUtils.slug(name))
+    console.log('Source: "', name, '" is:', fileEasy.slug(name))
 })
 ```
 
@@ -50,23 +50,23 @@ Source: " %%Welcome**    Buddy%&^#$% " is: " welcome-buddy
 ### `.setDefaultExtension()`
 
 ```javascript
-const fileUtils = require('file-easy')
+const fileEasy = require('file-easy')
 
 // f1 is filename.js (no extension in original, apply extension)
-let f1 = fileUtils.setDefaultExtension('filename', '.js)
+let f1 = fileEasy.setDefaultExtension('filename', '.js)
 
 // f2 is filename.js (extension already exists)
-let f2 = fileUtils.setDefaultExtension('filename.js', '.json')
+let f2 = fileEasy.setDefaultExtension('filename.js', '.json')
 
 // f3 is filename. (extension starts with . in original)
-let f3 = fileUtils.setDefaultExtension('filename.', '.js')
+let f3 = fileEasy.setDefaultExtension('filename.', '.js')
 ```
 
 ### `.saveDocument()`
 
 
 ```javascript
-const fileUtils = require('file-easy')
+const fileEasy = require('file-easy')
 
 let filename = './docs/sample.txt'
 let content = 'String to go in'
@@ -76,7 +76,7 @@ let content = 'String to go in'
  * If path does not exist, it will create it (e.g. `./docs`)
  * The file is saved as a utf-8 format (standard format)
  */
-fileUtils.saveDocument(filename, content)
+fileEasy.saveDocument(filename, content)
 ```
 
 ## Functions
