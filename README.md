@@ -1,7 +1,83 @@
 # file-utils
 
+File utilities to speed up creating document files, setting default extension, and getting a `slug` from a string.
+
+## Installation
+
+```bash
+npm i file-utils
+```
+
+## Usage
+
+### `.slug()`
+
+```javascript
+const fileUtils = require('file-utils')
+
+// getting a slug
+let fn = 'source Filename';
+let slug = fileUtils.slug(fn)
+console.log('Slug:', slug)
+```
+
+Will show:
+
+```bash
+Slug: source-filename
+```
+
+```javascript
+const fileUtils = require('file-utils')
+
+let names = [
+    'Simple_File$Goes%Here',
+    '%%Welcome**    Buddy%&^#$%'
+];
+names.forEach((name) => {
+    console.log('Source: "', name, '" is:', fileUtils.slug(name))
+})
+```
+
+Will show:
 
 
+```bash
+Source: " Simple_File$Goes%Here " is: " simple-file-goes-here
+Source: " %%Welcome**    Buddy%&^#$% " is: " welcome-buddy
+```
+
+### `.setDefaultExtension()`
+
+```javascript
+const fileUtils = require('file-utils')
+
+// f1 is filename.js (no extension in original, apply extension)
+let f1 = fileUtils.setDefaultExtension('filename', '.js)
+
+// f2 is filename.js (extension already exists)
+let f2 = fileUtils.setDefaultExtension('filename.js', '.json')
+
+// f3 is filename. (extension starts with . in original)
+let f3 = fileUtils.setDefaultExtension('filename.', '.js')
+```
+
+### `.saveDocument()`
+
+
+```javascript
+const fileUtils = require('file-utils')
+
+let filename = './docs/sample.txt'
+let content = 'String to go in'
+
+/**
+ * Creates the `sample.txt` file in `./docs` folder
+ * If path does not exist, it will create it (e.g. `./docs`)
+ * The file is saved as a utf-8 format (standard format)
+ */
+fileUtils.saveDocument(filename, content)
+```
 
 ## Functions
 
