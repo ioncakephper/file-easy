@@ -1,6 +1,6 @@
 {
   "name": "file-easy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "file utilities",
   "main": "index.js",
   "dependencies": {
