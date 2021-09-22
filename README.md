@@ -1,3 +1,5 @@
+[![DeepScan grade](https://deepscan.io/api/teams/15501/projects/18710/branches/463828/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=15501&pid=18710&bid=463828)
+
 # file-easy
 
 File utilities to speed up creating document files, setting default extension, and getting a `slug` from a string.
