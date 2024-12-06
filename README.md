@@ -1,9 +1,6 @@
 # file-easy
 
-
-
 File utilities to speed up creating document files, setting default extension, and getting a `slug` from a string.
-
 
 [![npm](https://img.shields.io/npm/v/file-easy.svg)](https://www.npmjs.com/package/file-easy)
 [![npm](https://img.shields.io/npm/dm/file-easy.svg)](https://www.npmjs.com/package/file-easy)
@@ -52,7 +49,6 @@ names.forEach((name) => {
 
 Will show:
 
-
 ```bash
 Source: " Simple_File$Goes%Here " is: " simple-file-goes-here
 Source: " %%Welcome**    Buddy%&^#$% " is: " welcome-buddy
@@ -74,7 +70,6 @@ let f3 = fileEasy.setDefaultExtension('filename.', '.js')
 ```
 
 ### `.saveDocument()`
-
 
 ```javascript
 const fileEasy = require('file-easy')
@@ -109,8 +104,8 @@ fileEasy.saveDocument(filename, content)
 ## setDefaultExtension(filename, extension) ⇒ <code>string</code>
 Append specified extension if needed.
 
-**Kind**: global function  
-**Returns**: <code>string</code> - filename with either existing or specified extension  
+**Kind**: global function
+**Returns**: <code>string</code> - filename with either existing or specified extension
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -122,7 +117,7 @@ Append specified extension if needed.
 ## saveDocument(filename, content)
 Save content in a file using utf8 format.
 
-**Kind**: global function  
+**Kind**: global function
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -134,10 +129,9 @@ Save content in a file using utf8 format.
 ## slug(s) ⇒ <code>string</code>
 Convert a string into an identifier.
 
-**Kind**: global function  
-**Returns**: <code>string</code> - The identifier string  
+**Kind**: global function
+**Returns**: <code>string</code> - The identifier string
 
 | Param | Type | Description |
 | --- | --- | --- |
 | s | <code>string</code> | The string to convert by replacing special characters with dash (-) |
-

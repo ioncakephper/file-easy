@@ -12,6 +12,7 @@
 - Updated slug docstring
 - Improve saveDocument function: throw errors for non-valid arguments. ensure absolute path for file
 - Updated saveDocument docstring
+- Add informative description, keywords in package.json
 
 ### Fixed
 - Improved slug results
