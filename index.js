@@ -27,18 +27,30 @@ function saveDocument(filename, content) {
     fs.writeFileSync(filename, content, 'utf8')
 }
 
-/**
- * Convert a string into an identifier.
- *
- * @param {string} s The string to convert by replacing special characters with dash (-)
- * @returns {string} The identifier string
- */
+
 function slug(s) {
-    let regex = /[^a-zA-Z0-9\-]+/g;
-    s = s.trim().toLowerCase().replace(regex, '-')
-    s = s.replace(/^\-+/, '').replace(/\-+$/g, '')
+    if (typeof s !== 'string') {
+        throw new TypeError('Input must be a string');
+    }
+
+    s = s.trim().toLowerCase();
+
+    // Transliterate or remove non-ASCII characters
+    s = s.normalize('NFD').replace(/[\u0300-\u036f]/g, ''); // Remove diacritics
+
+    // Replace spaces and special characters with hyphens, allowing underscores
+    s = s.replace(/[^a-z0-9-_]+/g, '-');
+
+    // Replace multiple hyphens with a single hyphen
+    s = s.replace(/-+/g, '-');
+
+    // Remove leading and trailing hyphens
+    s = s.replace(/^-+|-+$/g, '');
+
     return s;
 }
+
+
 
 module.exports = {
     slug: slug,
