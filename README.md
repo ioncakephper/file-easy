@@ -1,9 +1,10 @@
 # file-easy
 
-File utilities to speed up creating document files, setting default extension, and getting a `slug` from a string.
+File utilities to speed up creating document files, setting default extension, and getting a `slug` from a string.  `file-easy` provides a simple, lightweight, and easy-to-use set of functions for common file-related tasks. If you're tired of writing boilerplate code for handling filenames, creating text files, or generating URL-friendly slugs, `file-easy` simplifies these operations so you can focus on your core application logic. It's particularly well-suited for projects that frequently handle text files or need to sanitize filenames for web use.  No more complex regex or manual string manipulation – just clean, efficient file handling.
 
 [![npm](https://img.shields.io/npm/v/file-easy.svg)](https://www.npmjs.com/package/file-easy)
 [![npm](https://img.shields.io/npm/dm/file-easy.svg)](https://www.npmjs.com/package/file-easy)
+![License](https://img.shields.io/badge/license-MIT-green)
 [![Build Status](https://github.com/ioncakephper/file-easy/actions/workflows/node.js.yml/badge.svg)](https://github.com/ioncakephper/file-easy/actions/workflows/node.js.yml)
 [![njsscan sarif](https://github.com/ioncakephper/file-easy/actions/workflows/njsscan.yml/badge.svg)](https://github.com/ioncakephper/file-easy/actions/workflows/njsscan.yml)
 [![Node.js CI](https://github.com/ioncakephper/file-easy/actions/workflows/node.js.yml/badge.svg)](https://github.com/ioncakephper/file-easy/actions/workflows/node.js.yml)
