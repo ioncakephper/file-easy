@@ -1,14 +1,16 @@
 # file-easy
 
+
+
+File utilities to speed up creating document files, setting default extension, and getting a `slug` from a string.
+
+
 [![npm](https://img.shields.io/npm/v/file-easy.svg)](https://www.npmjs.com/package/file-easy)
 [![npm](https://img.shields.io/npm/dm/file-easy.svg)](https://www.npmjs.com/package/file-easy)
 [![Build Status](https://github.com/ioncakephper/file-easy/actions/workflows/node.js.yml/badge.svg)](https://github.com/ioncakephper/file-easy/actions/workflows/node.js.yml)
 [![njsscan sarif](https://github.com/ioncakephper/file-easy/actions/workflows/njsscan.yml/badge.svg)](https://github.com/ioncakephper/file-easy/actions/workflows/njsscan.yml)
 [![Node.js CI](https://github.com/ioncakephper/file-easy/actions/workflows/node.js.yml/badge.svg)](https://github.com/ioncakephper/file-easy/actions/workflows/node.js.yml)
 [![CodeQL Advanced](https://github.com/ioncakephper/file-easy/actions/workflows/codeql.yml/badge.svg)](https://github.com/ioncakephper/file-easy/actions/workflows/codeql.yml)
-
-File utilities to speed up creating document files, setting default extension, and getting a `slug` from a string.
-
 [![DeepScan grade](https://deepscan.io/api/teams/15501/projects/18710/branches/463828/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=15501&pid=18710&bid=463828)
 
 ## Installation
