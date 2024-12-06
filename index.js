@@ -18,16 +18,49 @@ function setDefaultExtension(filename, extension) {
  *
  * @param {string} filename The filename to create. It can also include a path ending with the filename. Path will be created if not exists.
  * @param {string} content The content to place in the file.
+ * @throws {Error} If input is invalid or if there was an error during the save process.
  */
 function saveDocument(filename, content) {
-    let d = path.dirname(filename);
-    if (!fs.existsSync(d)) {
-        fs.mkdirSync(d, { 'recursive': true })
+    // Validate inputs
+    if (typeof filename !== 'string' || typeof content !== 'string') {
+        throw new Error('Invalid input: `filename` and `content` must be strings.');
     }
-    fs.writeFileSync(filename, content, 'utf8')
+
+    // Check if filename contains invalid characters
+    const invalidChars = /[<>:"/\\|?*\x00-\x1F]/g;
+    if (invalidChars.test(path.basename(filename))) {
+        throw new Error('Invalid filename: contains prohibited characters.');
+    }
+
+    // Ensure the filename is an absolute path
+    if (!path.isAbsolute(filename)) {
+        filename = path.resolve(filename);
+    }
+
+    // Create directory if it doesn't exist
+    const dir = path.dirname(filename);
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+    }
+
+    // Write content to file
+    fs.writeFileSync(filename, content, 'utf8');
 }
 
 
+/**
+ * Convert a string into an identifier.
+ *
+ * @param {string} s The string to convert.
+ * @returns {string} The identifier string.
+ *
+ * The following operations are performed on the string:
+ * 1. Trim and convert to lower case.
+ * 2. Remove diacritics (transliterate or remove non-ASCII characters).
+ * 3. Replace spaces and special characters with hyphens, allowing underscores.
+ * 4. Replace multiple hyphens with a single hyphen.
+ * 5. Remove leading and trailing hyphens.
+ */
 function slug(s) {
     if (typeof s !== 'string') {
         throw new TypeError('Input must be a string');

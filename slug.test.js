@@ -51,7 +51,7 @@ describe('setDefaultExtension', () => {
 
 
 describe('saveDocument', () => {
-    const testDir = './test_output'; // Use a dedicated test directory
+    const testDir = './test_output';
     const testFile = path.join(testDir, 'test.txt');
 
     afterEach(() => {
@@ -62,7 +62,6 @@ describe('saveDocument', () => {
         }
     });
 
-
     it('should create file with content', () => {
         const content = 'Test content';
         saveDocument(testFile, content);
@@ -70,17 +69,46 @@ describe('saveDocument', () => {
         expect(fs.readFileSync(testFile, 'utf8')).toBe(content);
     });
 
-
     it('should create nested directories and file', () => {
-
         const nestedFile = path.join(testDir, 'nested', 'deeply', 'test.txt');
-
         const content = 'Nested test content';
         saveDocument(nestedFile, content);
         expect(fs.existsSync(nestedFile)).toBe(true);
         expect(fs.readFileSync(nestedFile, 'utf8')).toBe(content);
     });
-});
 
+    it('should handle empty content', () => {
+        const content = '';
+        saveDocument(testFile, content);
+        expect(fs.existsSync(testFile)).toBe(true);
+        expect(fs.readFileSync(testFile, 'utf8')).toBe(content);
+    });
+
+    it('should overwrite existing file', () => {
+        const initialContent = 'Initial content';
+        const newContent = 'New content';
+        saveDocument(testFile, initialContent);
+        saveDocument(testFile, newContent);
+        expect(fs.readFileSync(testFile, 'utf8')).toBe(newContent);
+    });
+
+    it('should handle large content', () => {
+        const largeContent = 'a'.repeat(10 * 1024 * 1024); // 10 MB of 'a'
+        saveDocument(testFile, largeContent);
+        expect(fs.existsSync(testFile)).toBe(true);
+        expect(fs.readFileSync(testFile, 'utf8')).toBe(largeContent);
+    });
+
+    it('should throw error for non-string content', () => {
+        const nonStringContent = 12345;
+        expect(() => saveDocument(testFile, nonStringContent)).toThrow('Invalid input: `filename` and `content` must be strings.');
+    });
+
+    it('should throw error for invalid filename', () => {
+        const invalidFile = path.join(testDir, 'invalid<>file.txt');
+        const content = 'Content';
+        expect(() => saveDocument(invalidFile, content)).toThrow('Invalid filename: contains prohibited characters.');
+    });
+});
 
 
