@@ -136,3 +136,13 @@ Convert a string into an identifier.
 | Param | Type | Description |
 | --- | --- | --- |
 | s | <code>string</code> | The string to convert by replacing special characters with dash (-) |
+
+
+
+## Author
+
+[Ion Gireada](https://github.com/ioncakephper) - shytiger[at]yahoo.com
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
