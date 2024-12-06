@@ -4,7 +4,7 @@ File utilities to speed up creating document files, setting default extension, a
 
 [![npm](https://img.shields.io/npm/v/file-easy.svg)](https://www.npmjs.com/package/file-easy)
 [![npm](https://img.shields.io/npm/dm/file-easy.svg)](https://www.npmjs.com/package/file-easy)
-![License](https://img.shields.io/badge/license-MIT-green)
+[![License](https://img.shields.io/badge/license-MIT-green)](license)
 [![Build Status](https://github.com/ioncakephper/file-easy/actions/workflows/node.js.yml/badge.svg)](https://github.com/ioncakephper/file-easy/actions/workflows/node.js.yml)
 [![njsscan sarif](https://github.com/ioncakephper/file-easy/actions/workflows/njsscan.yml/badge.svg)](https://github.com/ioncakephper/file-easy/actions/workflows/njsscan.yml)
 [![Node.js CI](https://github.com/ioncakephper/file-easy/actions/workflows/node.js.yml/badge.svg)](https://github.com/ioncakephper/file-easy/actions/workflows/node.js.yml)
