@@ -1,5 +1,5 @@
 # Test files
-__test__/
+__tests__/
 test/
 coverage/
 .nyc_output/
@@ -39,6 +39,8 @@ examples/
 
 # GitHub Actions workflows (already included in the .github folder, but good to reiterate)
 .github/
+
+.circleci/
 
 
 # Files specific to your build process or environment
