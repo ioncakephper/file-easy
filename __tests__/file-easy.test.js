@@ -1,4 +1,4 @@
-const { slug, setDefaultExtension, saveDocument } = require('./index'); // Adjust path if necessary
+const { slug, setDefaultExtension, saveDocument } = require('../index'); // Adjust path if necessary
 const fs = require('fs');
 const path = require('path');
 
@@ -30,23 +30,56 @@ describe('slug', () => {
 });
 
 
-
-
 describe('setDefaultExtension', () => {
-
-    it('should return filename with default extension', () => {
-
-        expect(setDefaultExtension('myfile', '.md')).toBe('myfile.md');
+    it('should throw an error for an extension without a leading dot', () => {
+        const filename = 'example';
+        const invalidExtension = 'txt';
+        expect(() => setDefaultExtension(filename, invalidExtension)).toThrow('Invalid extension: must start with a dot and contain only alphanumeric characters.');
     });
 
-
-
-    it('should return filename with existing extension', () => {
-
-        expect(setDefaultExtension('myfile.txt', '.md')).toBe('myfile.txt');
-
+    it('should throw an error for an extension with invalid characters', () => {
+        const filename = 'example';
+        const invalidExtension = '.tx$t';
+        expect(() => setDefaultExtension(filename, invalidExtension)).toThrow('Invalid extension: must start with a dot and contain only alphanumeric characters.');
     });
 
+    it('should not throw an error for a valid extension', () => {
+        const filename = 'example';
+        const validExtension = '.txt';
+        expect(() => setDefaultExtension(filename, validExtension)).not.toThrow();
+    });
+
+    it('should return the filename with the default extension if no extension is present', () => {
+        const filename = 'example';
+        const extension = '.txt';
+        const result = setDefaultExtension(filename, extension);
+        expect(result).toBe('example.txt');
+    });
+
+    it('should return the original filename if it already has an extension', () => {
+        const filename = 'example.txt';
+        const extension = '.md';
+        const result = setDefaultExtension(filename, extension);
+        expect(result).toBe('example.txt');
+    });
+
+    it('should throw an error if filename is not a string', () => {
+        const invalidFilename = 12345;
+        const extension = '.txt';
+        expect(() => setDefaultExtension(invalidFilename, extension)).toThrow('Invalid input: `filename` must be a string.');
+    });
+
+    it('should throw an error if extension is not a string', () => {
+        const filename = 'example';
+        const invalidExtension = 12345;
+        expect(() => setDefaultExtension(filename, invalidExtension)).toThrow('Invalid input: `extension` must be a string.');
+    });
+
+    it('should throw an error if filename is empty', () => {
+        const emptyFilename = '';
+        const extension = '.txt';
+        expect(() => setDefaultExtension(emptyFilename, extension)).toThrow('Invalid input: `filename` cannot be empty.');
+    });
 });
 
 

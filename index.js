@@ -3,17 +3,6 @@ const fs = require('fs')
 
 
 /**
- * Append specified extension if needed.
- *
- * @param {string} filename the filename to check for an existing extension.
- * @param {string} extension the extension to append if filename has no extension. It should start with a dot (e.g. `.txt`)
- * @returns {string} filename with either existing or specified extension
- */
-function setDefaultExtension(filename, extension) {
-    return (path.extname(filename)) ? filename : filename + extension;
-}
-
-/**
  * Save content in a file using utf8 format.
  *
  * @param {string} filename The filename to create. It can also include a path ending with the filename. Path will be created if not exists.
@@ -47,6 +36,40 @@ function saveDocument(filename, content) {
     fs.writeFileSync(filename, content, 'utf8');
 }
 
+/**
+ * Append specified extension if needed.
+ *
+ * @param {string} filename The filename to check for an existing extension.
+ * @param {string} extension The extension to append if filename has no extension. It should start with a dot (e.g. `.txt`)
+ * @returns {string} filename with either existing or specified extension
+ * @throws {TypeError} If filename or extension is not a string.
+ * @throws {Error} If extension is empty or doesn't start with a dot.
+ */
+function setDefaultExtension(filename, extension) {
+    // Validate inputs
+    const validExtensionPattern = /^\.[a-zA-Z0-9]+$/;
+    if (typeof filename !== 'string') {
+        throw new TypeError('Invalid input: `filename` must be a string.');
+    }
+    if (typeof extension !== 'string') {
+        throw new TypeError('Invalid input: `extension` must be a string.');
+    }
+    if (filename.trim() === '') {
+        throw new Error('Invalid input: `filename` cannot be empty.');
+    }
+
+    // Validate extension
+    if (!validExtensionPattern.test(extension)) {
+        throw new Error('Invalid extension: must start with a dot and contain only alphanumeric characters.');
+    }
+
+    // Return filename with existing extension, or append the specified extension
+    if (path.extname(filename)) {
+        return filename;
+    }
+
+    return `${filename}${extension}`;
+}
 
 /**
  * Convert a string into an identifier.
@@ -83,10 +106,8 @@ function slug(s) {
     return s;
 }
 
-
-
 module.exports = {
-    slug: slug,
-    setDefaultExtension: setDefaultExtension,
-    saveDocument: saveDocument
+    saveDocument,
+    setDefaultExtension,
+    slug,
 }
