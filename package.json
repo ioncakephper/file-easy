@@ -1,6 +1,6 @@
 {
   "name": "file-easy",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Working with the Node.js file system can be cumbersome. File-easy simplifies common file operations with a clean and easy-to-use API, making file management a breeze.",
   "main": "index.js",
   "scripts": {
@@ -16,12 +16,11 @@
     "file utils",
     "file write"
   ],
-"author": {
-  "name": "Ion Gireada",
-  "email": "shytiger@yahoo.com",
-  "url": "https://github.com/ioncakephper."
-},
-
+  "author": {
+    "name": "Ion Gireada",
+    "email": "shytiger@yahoo.com",
+    "url": "https://github.com/ioncakephper."
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ioncakephper/file-easy/issues"
