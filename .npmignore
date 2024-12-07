@@ -1,0 +1,51 @@
+# Test files
+__test__/
+test/
+coverage/
+.nyc_output/
+
+# Development-specific files
+.DS_Store
+.git
+.gitignore
+.editorconfig
+.eslintrc*
+.prettierrc*
+*.log
+*.lock
+
+# Documentation build output
+docs/
+
+# Build tools and configuration
+Makefile
+Gulpfile.js
+Gruntfile.js
+webpack.config.js
+tsconfig.json
+
+# Local modules and linked dependencies
+node_modules/
+.npm
+npm-debug.log
+
+# Example files (if they are not meant for distribution)
+examples/
+
+# IDE-specific configuration files
+.idea/
+.vscode/
+*.iml
+
+# GitHub Actions workflows (already included in the .github folder, but good to reiterate)
+.github/
+
+
+# Files specific to your build process or environment
+*.swp
+*~
+
+# Private keys or configuration files
+*.key
+*.pem
+.env*
